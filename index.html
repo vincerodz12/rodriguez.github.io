@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Vince Rodriguez | IT Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vince Rodriguez | IT Portfolio</title>
     <style>
         /* General Styles */
         body {
@@ -11,8 +11,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #0000FF;
-            color: #333;
+            background-color: #f4f4f4; /* Light background */
+            color: #333; /* Dark text for readability */
         }
 
         a {
@@ -26,15 +26,17 @@
 
         /* Header & Navigation */
         header {
-            background-color: #222;
-            color: #fff;
+            background-color: #ffffff; /* White background for header */
+            color: #333; /* Dark text color */
             padding: 20px 10%;
             text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: #333; /* Dark color for header text */
         }
 
         nav {
@@ -43,8 +45,12 @@
 
         nav a {
             margin: 0 15px;
-            color: #fff;
+            color: #007bff;
             font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
 
         /* Sections */
@@ -52,12 +58,15 @@
             padding: 50px 10%;
             max-width: 1000px;
             margin: 0 auto;
+            background-color: #ffffff; /* White background for sections */
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
         }
 
         section h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
-            color: #222;
+            color: #333; /* Dark color for headings */
             border-bottom: 2px solid #007bff;
             display: inline-block;
             padding-bottom: 5px;
@@ -85,7 +94,7 @@
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .projects .project h3 {
@@ -95,99 +104,21 @@
         /* Certifications & Activities */
         .certifications ul,
         .activities ul {
-            list-style-type: disc; 
+            list-style-type: disc;
             padding-left: 20px;
         }
 
         /* Footer */
         footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #ffffff; /* White background for footer */
+            color: #333; /* Dark text */
             text-align: center;
             padding: 20px 10%;
+            border-top: 1px solid #ddd; /* Light border at the top */
         }
 
         footer a {
-            color: #fff;
-            margin: 0 10px;
-        }<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vince Rodriguez - Portfolio</title>
-    <style>
-        /* Set the body background to blue */
-        body {
-            background-color: #3498db; /* Blue background */
-            color: white; /* White text color */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Styling */
-        header {
-            text-align: center;
-            padding: 50px 0;
-            background-color: #2980b9; /* Slightly darker blue for header */
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-
-        header p {
-            font-size: 1.2em;
-        }
-
-        /* Nav Styling */
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 40px 20px;
-            background-color: white; /* White background for sections */
-            color: #333; /* Darker text color for readability */
-            margin: 20px auto;
-            max-width: 1000px;
-            border-radius: 8px;
-        }
-
-        h2 {
-            color: #2980b9; /* Dark blue for headings */
-        }
-
-        /* Skills List */
-        .skills ul, .activities ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .skills li, .activities li {
-            margin: 10px 0;
-        }
-
-        /* Footer Styling */
-        footer {
-            background-color: #2980b9;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
+            color: #007bff;
             margin: 0 10px;
         }
 
@@ -224,7 +155,7 @@
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am an IT student passionate in learning about web development and other structures of fundamentals in programming, with slight experience in coding. 
+            I am an IT student passionate about learning web development and the fundamentals of programming, with some experience in coding. 
         </p>
     </section>
 
@@ -253,7 +184,6 @@
             <h3>Project 2: Chat App</h3>
             <p>Developed a real-time chat application using Node.js and Socket.io. Implemented user authentication and message storage. <a href="https://github.com/username/chat-app">View on GitHub</a></p>
         </div>
-        <!-- Add more projects here -->
     </section>
 
     <!-- Certifications Section -->
@@ -262,7 +192,6 @@
         <ul>
             <li>Cisco Packet Tracer</li>
             <li>Tesda</li>
-            <li></li>
         </ul>
     </section>
 
@@ -270,9 +199,8 @@
     <section id="activities" class="activities">
         <h2>Extracurricular Activities</h2>
         <ul>
-            <li>Member of Coding Club – organized hackathons</li>
-            <li>Volunteered as IT Support for University Events</li>
-            <li>Participated in national programming competitions</li>
+            <li>Member of Information Technology in Social Media groups</li>
+            <li>Participated in online programming courses</li>
         </ul>
     </section>
 
@@ -280,13 +208,13 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: rodriguezvince543@gmail.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/yourprofile</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/vincerodz12</a></p>
         <p>GitHub: <a href="https://github.com/username">github.com/rodriguez.github.io</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Vince Rodriguez | All Rights Reserved</p>
+        <p>&copy; 2026 Vince Rodz | All Rights Reserved</p>
         <p>
             <a href="https://github.com/username">GitHub</a> |
             <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
@@ -295,7 +223,6 @@
 
 </body>
 </html>
-
 
 
 
