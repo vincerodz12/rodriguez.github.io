@@ -1,236 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vince Rodriguez | IT Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vince Rodriguez | IT Portfolio</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-main: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #e5e7eb;
-            --text-muted: #94a3b8;
-            --radius: 14px;
-        }
+<style>
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --accent: #38bdf8;
+    --text-main: #e5e7eb;
+    --text-muted: #94a3b8;
+    --radius: 14px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: var(--text-main);
+}
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+header {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+}
 
-        header {
-            padding: 3rem 1rem;
-            text-align: center;
-            background: radial-gradient(circle at top, #1e293b, #020617);
-        }
+header h1 { font-size: 2.5rem; }
+header p { color: var(--text-muted); }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
+nav { margin-top: 1.5rem; }
+nav a { margin: 0 0.75rem; }
 
-        header p {
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
+section {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
 
-        nav {
-            margin-top: 1.5rem;
-        }
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+}
 
-        nav a {
-            margin: 0 0.75rem;
-            font-weight: 500;
-        }
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 
-        section {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
 
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 0.75rem;
-        }
+ul li {
+    background: #020617;
+    padding: 0.75rem;
+    border-radius: 10px;
+    text-align: center;
+}
 
-        .card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease;
-        }
+/* ===== Snake Game Styles ===== */
+.snake-wrapper { text-align: center; margin-top: 1rem; }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.snake-wrapper h3 { margin-bottom: 0.5rem; }
 
-        ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.75rem;
-        }
+.score-board {
+    background: #0f380f;
+    color: #9bbc0f;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
-        ul li {
-            background: #020617;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 500;
-        }
+#gameCanvas {
+    background: #9bbc0f;
+    border: 6px solid #0f380f;
+    border-radius: 6px;
+    max-width: 100%;
+}
 
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: #020617;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+.mobile-controls {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 8px;
+    justify-content: center;
+}
 
-        footer a {
-            margin: 0 0.5rem;
-        }
+.control-btn {
+    background: #0f380f;
+    color: #9bbc0f;
+    border: 2px solid #9bbc0f;
+    border-radius: 8px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
+.control-btn.center {
+    background: #306230;
+    border-color: #0f380f;
+    cursor: default;
+}
 
-            nav a {
-                display: inline-block;
-                margin: 0.5rem;
-            }
-        }
-    </style>
+#gameOverScreen {
+    position: absolute;
+    inset: 0;
+    display: none;
+    background: rgba(15,56,15,0.9);
+    color: #9bbc0f;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#gameOverScreen.show { display: flex; }
+
+.restart-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Vince Rodriguez</h1>
-    <p>IT Student | Aspiring Web Developer</p>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#activities">Activities</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h1>Vince Rodriguez</h1>
+<p>IT Student | Aspiring Web Developer</p>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            I am an IT student currently taking BSIT-GD, motivated to learn new technologies
-            and continuously improve my development and design skills.
-        </p>
-    </div>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Git & GitHub</li>
-        <li>Adobe Photoshop</li>
-        <li>Adobe Premiere Pro</li>
-    </ul>
-</section>
-
 <section id="projects">
-    <h2>Projects</h2>
+<h2>Projects</h2>
 
-    <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>
-            Personal portfolio built using HTML, CSS, and JavaScript with a responsive layout.
-        </p>
-        <a href="https://github.com/username/portfolio">View on GitHub →</a>
-    </div>
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>Personal portfolio built using HTML, CSS, and JavaScript.</p>
+</div>
 
-    <div class="card">
-        <h3>Chat Application</h3>
-        <p>
-            Real-time chat app using Node.js and Socket.io with authentication and message storage.
-        </p>
-        <a href="https://github.com/username/chat-app">View on GitHub →</a>
-    </div>
-</section>
+<div class="card snake-wrapper">
+<h3>🐍 Snake Game (JavaScript)</h3>
+<p>Classic Snake game using HTML5 Canvas with keyboard and mobile controls.</p>
 
-<section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-        <li>Cisco Packet Tracer</li>
-        <li>TESDA</li>
-    </ul>
-</section>
+<div class="score-board">Score: <span id="score">0</span></div>
 
-<section id="activities">
-    <h2>Extracurricular Activities</h2>
-    <ul>
-        <li>Member of IT-focused communities</li>
-        <li>Completed online programming courses</li>
-    </ul>
-</section>
+<div style="position:relative">
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+<div id="gameOverScreen">
+<h3>GAME OVER</h3>
+<p>Final Score: <span id="finalScore">0</span></p>
+<button class="restart-btn" onclick="restartGame()">Play Again</button>
+</div>
+</div>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>Email: rodriguezvince543@gmail.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/vincerodz12</a></p>
-        <p>GitHub: <a href="https://github.com/username">github.com/rodriguez</a></p>
-    </div>
+<div class="mobile-controls">
+<button class="control-btn" id="btnUp">▲</button>
+<button class="control-btn" id="btnLeft">◄</button>
+<div class="control-btn center">🐍</div>
+<button class="control-btn" id="btnRight">►</button>
+<button class="control-btn" id="btnDown">▼</button>
+</div>
+</div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Vince Rodriguez. All Rights Reserved.</p>
-    <p>
-        <a href="https://github.com/username">GitHub</a> |
-        <a href="https://linkedin.com/in/vincerodz12">LinkedIn</a>
-    </p>
+<p>&copy; 2026 Vince Rodriguez</p>
 </footer>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+const scoreEl = document.getElementById("score");
+const finalScoreEl = document.getElementById("finalScore");
+const gameOverScreen = document.getElementById("gameOverScreen");
+
+const TILE = 20, SIZE = 25;
+let snake, food, dir, nextDir, score, loop, running;
+
+function startGame() {
+snake = [{x:5,y:5},{x:4,y:5},{x:3,y:5}];
+dir = nextDir = "RIGHT";
+score = 0;
+running = true;
+scoreEl.textContent = score;
+spawnFood();
+gameOverScreen.classList.remove("show");
+clearInterval(loop);
+loop = setInterval(update,100);
+}
+
+function spawnFood(){
+food={x:Math.floor(Math.random()*SIZE),y:Math.floor(Math.random()*SIZE)};
+}
+
+function update(){
+if(!running) return;
+dir=nextDir;
+const h={...snake[0]};
+if(dir==="UP")h.y--; if(dir==="DOWN")h.y++;
+if(dir==="LEFT")h.x--; if(dir==="RIGHT")h.x++;
+if(h.x<0||h.y<0||h.x>=SIZE||h.y>=SIZE||snake.some(s=>s.x===h.x&&s.y===h.y)){endGame();return;}
+snake.unshift(h);
+if(h.x===food.x&&h.y===food.y){score+=10;scoreEl.textContent=score;spawnFood();}
+else snake.pop();
+draw();
+}
+
+function draw(){
+ctx.fillStyle="#9bbc0f";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#306230";
+ctx.fillRect(food.x*TILE,food.y*TILE,TILE,TILE);
+snake.forEach((s,i)=>{
+ctx.fillStyle=i===0?"#0f380f":"#306230";
+ctx.fillRect(s.x*TILE,s.y*TILE,TILE,TILE);
+});
+}
+
+function endGame(){
+running=false;
+clearInterval(loop);
+finalScoreEl.textContent=score;
+gameOverScreen.classList.add("show");
+}
+
+function restartGame(){startGame();}
+
+document.addEventListener("keydown",e=>{
+if(e.key==="ArrowUp"&&dir!=="DOWN")nextDir="UP";
+if(e.key==="ArrowDown"&&dir!=="UP")nextDir="DOWN";
+if(e.key==="ArrowLeft"&&dir!=="RIGHT")nextDir="LEFT";
+if(e.key==="ArrowRight"&&dir!=="LEFT")nextDir="RIGHT";
+});
+
+btnUp.onclick=()=>dir!=="DOWN"&&(nextDir="UP");
+btnDown.onclick=()=>dir!=="UP"&&(nextDir="DOWN");
+btnLeft.onclick=()=>dir!=="RIGHT"&&(nextDir="LEFT");
+btnRight.onclick=()=>dir!=="LEFT"&&(nextDir="RIGHT");
+
+startGame();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
