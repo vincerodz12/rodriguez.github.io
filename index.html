@@ -4,228 +4,294 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vince Rodriguez | IT Portfolio</title>
-    
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #e5e7eb;
+            --text-muted: #94a3b8;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4; /* Light background */
-            color: #333; /* Dark text for readability */
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
         }
 
         a {
+            color: var(--accent);
             text-decoration: none;
-            color: #007bff;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* Header & Navigation */
+        /* ===== Header ===== */
         header {
-            background-color: #ffffff; /* White background for header */
-            color: #333; /* Dark text color */
-            padding: 20px 10%;
             text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #020617, #0f172a);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #333; /* Dark color for header text */
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-size: 1.1rem;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
         nav a {
             margin: 0 15px;
-            color: #007bff;
-            font-weight: bold;
+            font-weight: 500;
+            position: relative;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        nav a::after {
+            content: "";
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
         }
 
-        /* Sections */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== Sections ===== */
         section {
-            padding: 50px 10%;
             max-width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff; /* White background for sections */
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            margin: 60px auto;
+            padding: 50px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         section h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
-            color: #333; /* Dark color for headings */
-            border-bottom: 2px solid #007bff;
-            display: inline-block;
-            padding-bottom: 5px;
+            margin-bottom: 25px;
+            position: relative;
         }
 
-        /* Skills */
+        section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* ===== Skills ===== */
         .skills ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .skills li {
-            display: inline-block;
-            margin: 5px 10px;
-            background: #007bff;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 20px;
+            background: rgba(56,189,248,0.15);
+            border: 1px solid rgba(56,189,248,0.4);
+            color: var(--accent);
+            padding: 10px 18px;
+            border-radius: 30px;
             font-size: 0.9rem;
+            transition: 0.3s;
         }
 
-        /* Projects */
-        .projects .project {
-            background: #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        .skills li:hover {
+            background: var(--accent);
+            color: #020617;
         }
 
-        .projects .project h3 {
-            margin-top: 0;
+        /* ===== Projects ===== */
+        .project {
+            background: #020617;
+            padding: 25px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+            transition: 0.3s;
         }
 
-        /* Certifications & Activities */
-        .certifications ul,
-        .activities ul {
-            list-style-type: disc;
+        .project:hover {
+            transform: translateY(-6px);
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--text-muted);
+        }
+
+        /* ===== Lists ===== */
+        ul {
             padding-left: 20px;
         }
 
-        /* Footer */
+        li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        /* ===== Contact ===== */
+        #contact p {
+            margin-bottom: 12px;
+        }
+
+        /* ===== Footer ===== */
         footer {
-            background-color: #ffffff; /* White background for footer */
-            color: #333; /* Dark text */
             text-align: center;
-            padding: 20px 10%;
-            border-top: 1px solid #ddd; /* Light border at the top */
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid #1e293b;
         }
 
         footer a {
-            color: #007bff;
             margin: 0 10px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
+        /* ===== Responsive ===== */
         @media (max-width: 768px) {
+            section {
+                padding: 30px;
+                margin: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
             nav a {
-                display: block;
-                margin: 10px 0;
+                display: inline-block;
+                margin: 10px;
             }
         }
     </style>
-
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Vince Rodriguez</h1>
-        <p>IT Student | Aspiring Web Developer</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#activities">Activities</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+    <h1>Vince Rodriguez</h1>
+    <p>IT Student | Aspiring Web Developer</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am an IT student currently taking a BSIT - GD course, motivated and willing to learn new technologies and improve my development skills.
+    </p>
+</section>
+
+<section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Git & GitHub</li>
+        <li>Adobe Photoshop</li>
+        <li>Adobe Premiere Pro</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>Portfolio Website</h3>
         <p>
-            I am an IT student currently taking a BSIT - GD Course, Willing to learn.
+            Personal portfolio built using HTML, CSS, and JavaScript with responsive layout.
+            <a href="https://github.com/username/portfolio">View on GitHub</a>
         </p>
-    </section>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Git & GitHub</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe Premiere Pro</li>
-        </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1: Portfolio Website</h3>
-            <p>Created a personal portfolio website using HTML, CSS, and JavaScript. Includes interactive elements and responsive design. <a href="https://github.com/username/portfolio">View on GitHub</a></p>
-        </div>
-        <div class="project">
-            <h3>Project 2: Chat App</h3>
-            <p>Developed a real-time chat application using Node.js and Socket.io. Implemented user authentication and message storage. <a href="https://github.com/username/chat-app">View on GitHub</a></p>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Cisco Packet Tracer</li>
-            <li>Tesda</li>
-        </ul>
-    </section>
-
-    <!-- Extracurricular Activities Section -->
-    <section id="activities" class="activities">
-        <h2>Extracurricular Activities</h2>
-        <ul>
-            <li>Member of Information Technology in Social Media groups</li>
-            <li>Participated in online programming courses</li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: rodriguezvince543@gmail.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/vincerodz12</a></p>
-        <p>GitHub: <a href="https://github.com/username">github.com/rodriguez.github.io</a></p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Vince Rodz | All Rights Reserved</p>
+    <div class="project">
+        <h3>Chat Application</h3>
         <p>
-            <a href="https://github.com/username">GitHub</a> |
-            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            Real-time chat app using Node.js and Socket.io with authentication and message storage.
+            <a href="https://github.com/username/chat-app">View on GitHub</a>
         </p>
-    </footer>
+    </div>
+</section>
+
+<section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+        <li>Cisco Packet Tracer</li>
+        <li>TESDA</li>
+    </ul>
+</section>
+
+<section id="activities">
+    <h2>Extracurricular Activities</h2>
+    <ul>
+        <li>Member of IT-focused social media communities</li>
+        <li>Completed online programming courses</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: rodriguezvince543@gmail.com</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/vincerodz12</a></p>
+    <p>GitHub: <a href="https://github.com/username">github.com/rodriguez.github.io</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Vince Rodriguez. All Rights Reserved.</p>
+    <p>
+        <a href="https://github.com/username">GitHub</a> |
+        <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+    </p>
+</footer>
 
 </body>
 </html>
-
 
 
 
