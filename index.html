@@ -1,134 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vince Rodriguez | IT Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vince Rodriguez | IT Portfolio</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-main: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #e5e7eb;
-            --text-muted: #94a3b8;
-            --radius: 14px;
-        }
+<style>
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --accent: #38bdf8;
+    --text-main: #e5e7eb;
+    --text-muted: #94a3b8;
+    --radius: 14px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #020617, #0f172a);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: var(--text-main);
+    line-height: 1.6;
+}
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+a:hover {
+    text-decoration: underline;
+}
 
-        header {
-            padding: 3rem 1rem;
-            text-align: center;
-            background: radial-gradient(circle at top, #1e293b, #020617);
-        }
+header {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+}
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
 
-        header p {
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
+header p {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
 
-        nav {
-            margin-top: 1.5rem;
-        }
+nav {
+    margin-top: 1.5rem;
+}
 
-        nav a {
-            margin: 0 0.75rem;
-            font-weight: 500;
-        }
+nav a {
+    margin: 0 0.75rem;
+    font-weight: 500;
+}
 
-        section {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+section {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
 
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 0.75rem;
-        }
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+}
 
-        .card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease;
-        }
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-        ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.75rem;
-        }
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
 
-        ul li {
-            background: #020617;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 500;
-        }
+ul li {
+    background: #020617;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+}
 
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: #020617;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #020617;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
 
-        footer a {
-            margin: 0 0.5rem;
-        }
+footer a {
+    margin: 0 0.5rem;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
+/* Snake Game Styles */
+#snake-game {
+    margin: 3rem auto;
+    text-align: center;
+}
 
-            nav a {
-                display: inline-block;
-                margin: 0.5rem;
-            }
-        }
-    </style>
+#snake-game canvas {
+    background-color: #9bbc0f;
+    border: 8px solid #0f380f;
+    border-radius: 5px;
+    outline: none;
+}
+
+.score-board {
+    background-color: #0f380f;
+    color: #9bbc0f;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mobile-controls {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-btn {
+    background-color: #0f380f;
+    color: #9bbc0f;
+    border: 3px solid #9bbc0f;
+    border-radius: 10px;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+.control-btn.center {
+    cursor: default;
+    background-color: #306230;
+}
+
+.keyboard-controls {
+    margin-top: 10px;
+    color: #9bbc0f;
+    font-size: 0.9em;
+}
+
+#gameOverScreen {
+    position: absolute;
+    display: none;
+    background-color: rgba(15,56,15,0.9);
+    color: #9bbc0f;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#gameOverScreen.show {
+    display: block;
+}
+
+.restart-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #9bbc0f;
+    color: #0f380f;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 0.5rem;
+    }
+
+    #snake-game canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .mobile-controls {
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(3, 50px);
+        gap: 5px;
+    }
+
+    .control-btn {
+        font-size: 1.5em;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -143,6 +233,7 @@
         <a href="#certifications">Certifications</a>
         <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
+        <a href="#snake-game">Snake Game</a>
     </nav>
 </header>
 
@@ -171,7 +262,6 @@
 
 <section id="projects">
     <h2>Projects</h2>
-
     <div class="card">
         <h3>Portfolio Website</h3>
         <p>
@@ -179,7 +269,6 @@
         </p>
         <a href="https://github.com/username/portfolio">View on GitHub →</a>
     </div>
-
     <div class="card">
         <h3>Chat Application</h3>
         <p>
@@ -214,6 +303,32 @@
     </div>
 </section>
 
+<!-- Snake Game Section -->
+<section id="snake-game">
+    <h2>🐍 Snake Game</h2>
+    <div class="score-board">
+        Score: <span id="score">0</span>
+    </div>
+    <div style="position: relative;">
+        <canvas id="gameCanvas" width="500" height="500" tabindex="0"></canvas>
+        <div id="gameOverScreen">
+            <h2>GAME OVER</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button class="restart-btn" onclick="restartGame()">PLAY AGAIN</button>
+        </div>
+    </div>
+    <div class="mobile-controls">
+        <button class="control-btn" id="btnUp">▲</button>
+        <button class="control-btn" id="btnLeft">◄</button>
+        <div class="control-btn center">🐍</div>
+        <button class="control-btn" id="btnRight">►</button>
+        <button class="control-btn" id="btnDown">▼</button>
+    </div>
+    <div class="keyboard-controls">
+        Arrow Keys or WASD
+    </div>
+</section>
+
 <footer>
     <p>&copy; 2026 Vince Rodriguez. All Rights Reserved.</p>
     <p>
@@ -222,5 +337,142 @@
     </p>
 </footer>
 
+<script>
+// Snake Game Logic
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const scoreEl = document.getElementById("score");
+const finalScoreEl = document.getElementById("finalScore");
+const gameOverScreen = document.getElementById("gameOverScreen");
+
+const TILE = 20;
+const GRID = 25;
+const SPEED = 120;
+
+let snake, food;
+let direction, nextDirection;
+let score = 0;
+let loop;
+let running = false;
+
+function init() {
+    canvas.focus();
+    setupMobileControls();
+    startGame();
+}
+
+function startGame() {
+    snake = [
+        {x: 5, y: 5},
+        {x: 4, y: 5},
+        {x: 3, y: 5}
+    ];
+    direction = "RIGHT";
+    nextDirection = "RIGHT";
+    score = 0;
+    running = true;
+    scoreEl.textContent = score;
+    gameOverScreen.classList.remove("show");
+    spawnFood();
+    clearInterval(loop);
+    loop = setInterval(update, SPEED);
+}
+
+function spawnFood() {
+    food = {
+        x: Math.floor(Math.random() * GRID),
+        y: Math.floor(Math.random() * GRID)
+    };
+}
+
+function update() {
+    direction = nextDirection;
+    const head = {...snake[0]};
+    if (direction === "UP") head.y--;
+    if (direction === "DOWN") head.y++;
+    if (direction === "LEFT") head.x--;
+    if (direction === "RIGHT") head.x++;
+    if (
+        head.x < 0 || head.x >= GRID ||
+        head.y < 0 || head.y >= GRID ||
+        snake.some(s => s.x === head.x && s.y === head.y)
+    ) {
+        endGame();
+        return;
+    }
+    snake.unshift(head);
+    if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        scoreEl.textContent = score;
+        spawnFood();
+    } else {
+        snake.pop();
+    }
+    draw();
+}
+
+function draw() {
+    ctx.fillStyle = "#9bbc0f";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#306230";
+    ctx.fillRect(food.x*TILE, food.y*TILE, TILE, TILE);
+
+    snake.forEach((s,i)=>{
+        ctx.fillStyle = i===0 ? "#0f380f" : "#306230";
+        ctx.fillRect(s.x*TILE, s.y*TILE, TILE, TILE);
+    });
+}
+
+function endGame() {
+    running = false;
+    clearInterval(loop);
+    finalScoreEl.textContent = score;
+    gameOverScreen.classList.add("show");
+}
+
+function restartGame() {
+    startGame();
+}
+
+// Keyboard Controls
+document.addEventListener("keydown", e => {
+    if (!running) return;
+    switch (e.code) {
+        case "ArrowUp":
+        case "KeyW":
+            if (direction !== "DOWN") nextDirection = "UP";
+            break;
+        case "ArrowDown":
+        case "KeyS":
+            if (direction !== "UP") nextDirection = "DOWN";
+            break;
+        case "ArrowLeft":
+        case "KeyA":
+            if (direction !== "RIGHT") nextDirection = "LEFT";
+            break;
+        case "ArrowRight":
+        case "KeyD":
+            if (direction !== "LEFT") nextDirection = "RIGHT";
+            break;
+    }
+    e.preventDefault();
+});
+
+document.addEventListener("click", () => canvas.focus());
+
+// Mobile Controls
+function setupMobileControls() {
+    btnUp.onclick = () => direction !== "DOWN" && (nextDirection = "UP");
+    btnDown.onclick = () => direction !== "UP" && (nextDirection = "DOWN");
+    btnLeft.onclick = () => direction !== "RIGHT" && (nextDirection = "LEFT");
+    btnRight.onclick = () => direction !== "LEFT" && (nextDirection = "RIGHT");
+}
+
+init();
+</script>
+
 </body>
 </html>
+
