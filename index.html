@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vince Rodriguez | IT Portfolio</title>
 
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -35,6 +36,10 @@
             text-decoration: none;
         }
 
+        a:hover {
+            text-decoration: underline;
+        }
+
         header {
             padding: 3rem 1rem;
             text-align: center;
@@ -48,6 +53,11 @@
 
         header p {
             color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            margin-top: 1.5rem;
         }
 
         nav a {
@@ -74,6 +84,11 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         ul {
@@ -85,82 +100,33 @@
 
         ul li {
             background: #020617;
-            padding: 0.75rem;
+            padding: 0.75rem 1rem;
             border-radius: 10px;
             text-align: center;
+            font-weight: 500;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
             background: #020617;
             color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* ===== Snake Game Styles ===== */
-        .snake-wrapper {
-            text-align: center;
-            margin-top: 1rem;
+        footer a {
+            margin: 0 0.5rem;
         }
 
-        .snake-title {
-            color: #9bbc0f;
-            margin-bottom: 10px;
-        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-        .score-board {
-            background-color: #0f380f;
-            color: #9bbc0f;
-            padding: 8px 16px;
-            border-radius: 6px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        #gameCanvas {
-            background-color: #9bbc0f;
-            border: 6px solid #0f380f;
-            border-radius: 8px;
-            max-width: 100%;
-        }
-
-        .mobile-controls {
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: repeat(3, 70px);
-            grid-template-rows: repeat(3, 70px);
-            gap: 6px;
-            justify-content: center;
-        }
-
-        .control-btn {
-            background-color: #0f380f;
-            color: #9bbc0f;
-            border: 2px solid #9bbc0f;
-            border-radius: 10px;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .control-btn.center {
-            background-color: #306230;
-            cursor: default;
-        }
-
-        #gameOverScreen {
-            position: absolute;
-            inset: 0;
-            display: none;
-            background: rgba(15,56,15,0.9);
-            color: #9bbc0f;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        #gameOverScreen.show {
-            display: flex;
+            nav a {
+                display: inline-block;
+                margin: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -174,6 +140,8 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -181,14 +149,23 @@
 <section id="about">
     <h2>About Me</h2>
     <div class="card">
-        <p>I am a IT student currently taking a BSIT - GD. Willing to learn and enhance my skills in technologies and programming.</p>
+        <p>
+            I am an IT student currently taking BSIT-GD, motivated to learn new technologies
+            and continuously improve my development and design skills.
+        </p>
     </div>
 </section>
 
 <section id="skills">
     <h2>Skills</h2>
     <ul>
-        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Git & GitHub</li>
+        <li>Adobe Photoshop</li>
+        <li>Adobe Premiere Pro</li>
     </ul>
 </section>
 
@@ -196,111 +173,54 @@
     <h2>Projects</h2>
 
     <div class="card">
-        <h3>Snake Game (JavaScript)</h3>
+        <h3>Portfolio Website</h3>
+        <p>
+            Personal portfolio built using HTML, CSS, and JavaScript with a responsive layout.
+        </p>
+        <a href="https://github.com/username/portfolio">View on GitHub →</a>
+    </div>
 
-        <div class="snake-wrapper">
-            <h1 class="snake-title">🐍 SNAKE</h1>
-            <div class="score-board">Score: <span id="score">0</span></div>
+    <div class="card">
+        <h3>Chat Application</h3>
+        <p>
+            Real-time chat app using Node.js and Socket.io with authentication and message storage.
+        </p>
+        <a href="https://github.com/username/chat-app">View on GitHub →</a>
+    </div>
+</section>
 
-            <div style="position:relative;">
-                <canvas id="gameCanvas" width="500" height="500"></canvas>
-                <div id="gameOverScreen">
-                    <h2>GAME OVER</h2>
-                    <p>Score: <span id="finalScore">0</span></p>
-                    <button onclick="restartGame()">PLAY AGAIN</button>
-                </div>
-            </div>
+<section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+        <li>Cisco Packet Tracer</li>
+        <li>TESDA</li>
+    </ul>
+</section>
 
-            <div class="mobile-controls">
-                <button class="control-btn" id="btnUp">▲</button>
-                <button class="control-btn" id="btnLeft">◄</button>
-                <div class="control-btn center">🐍</div>
-                <button class="control-btn" id="btnRight">►</button>
-                <button class="control-btn" id="btnDown">▼</button>
-            </div>
-        </div>
+<section id="activities">
+    <h2>Extracurricular Activities</h2>
+    <ul>
+        <li>Member of IT-focused communities</li>
+        <li>Completed online programming courses</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: rodriguezvince543@gmail.com</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/vincerodz12">linkedin.com/in/vincerodz12</a></p>
+        <p>GitHub: <a href="https://github.com/username">github.com/rodriguez</a></p>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Vince Rodriguez</p>
+    <p>&copy; 2026 Vince Rodriguez. All Rights Reserved.</p>
+    <p>
+        <a href="https://github.com/username">GitHub</a> |
+        <a href="https://linkedin.com/in/vincerodz12">LinkedIn</a>
+    </p>
 </footer>
-
-<script>
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-const scoreEl = document.getElementById('score');
-const finalScoreEl = document.getElementById('finalScore');
-const gameOverScreen = document.getElementById('gameOverScreen');
-
-const TILE = 20, GRID = 25;
-let snake, food, dir, nextDir, score, loop;
-
-function startGame(){
-    snake=[{x:5,y:5},{x:4,y:5},{x:3,y:5}];
-    dir=nextDir='RIGHT';
-    score=0;
-    scoreEl.textContent=0;
-    food=randomFood();
-    gameOverScreen.classList.remove('show');
-    clearInterval(loop);
-    loop=setInterval(update,100);
-}
-
-function randomFood(){
-    return {x:Math.floor(Math.random()*GRID),y:Math.floor(Math.random()*GRID)};
-}
-
-function update(){
-    dir=nextDir;
-    let h={...snake[0]};
-    if(dir==='UP')h.y--; if(dir==='DOWN')h.y++;
-    if(dir==='LEFT')h.x--; if(dir==='RIGHT')h.x++;
-
-    if(h.x<0||h.y<0||h.x>=GRID||h.y>=GRID||snake.some(s=>s.x===h.x&&s.y===h.y)){
-        endGame(); return;
-    }
-
-    snake.unshift(h);
-    if(h.x===food.x&&h.y===food.y){score+=10;scoreEl.textContent=score;food=randomFood();}
-    else snake.pop();
-    draw();
-}
-
-function draw(){
-    ctx.fillStyle='#9bbc0f';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle='#306230';
-    ctx.fillRect(food.x*TILE,food.y*TILE,TILE,TILE);
-    snake.forEach((s,i)=>{
-        ctx.fillStyle=i? '#306230':'#0f380f';
-        ctx.fillRect(s.x*TILE,s.y*TILE,TILE,TILE);
-    });
-}
-
-function endGame(){
-    clearInterval(loop);
-    finalScoreEl.textContent=score;
-    gameOverScreen.classList.add('show');
-}
-
-function restartGame(){ startGame(); }
-
-document.addEventListener('keydown',e=>{
-    if(e.key==='ArrowUp'&&dir!=='DOWN')nextDir='UP';
-    if(e.key==='ArrowDown'&&dir!=='UP')nextDir='DOWN';
-    if(e.key==='ArrowLeft'&&dir!=='RIGHT')nextDir='LEFT';
-    if(e.key==='ArrowRight'&&dir!=='LEFT')nextDir='RIGHT';
-});
-
-btnUp.onclick=()=>dir!=='DOWN'&&(nextDir='UP');
-btnDown.onclick=()=>dir!=='UP'&&(nextDir='DOWN');
-btnLeft.onclick=()=>dir!=='RIGHT'&&(nextDir='LEFT');
-btnRight.onclick=()=>dir!=='LEFT'&&(nextDir='RIGHT');
-
-startGame();
-</script>
 
 </body>
 </html>
-
